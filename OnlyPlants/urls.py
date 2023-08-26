@@ -22,7 +22,7 @@ from nombreapp.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("bienvenida/", bienvenida),
-    path("", include("nombreapp.urls")),
+    #path("", include("nombreapp.urls")),
     path("", index),
 ]
 
