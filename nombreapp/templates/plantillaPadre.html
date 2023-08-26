@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
-    <link type='text/css' href='{% static "css/barra_navegacion_styles.css" %}' rel='stylessheet'/>
+    <link type='text/css' href='{% static "css/barra_navegacion" %}' rel='stylessheet'/>
 </head>
 <body>
     <h1>OnlyPlants</h1>
@@ -13,6 +13,7 @@
     {% block content %}
 
     {% endblock %}
+    <script type='text/javascript' src='{% static "js/plantillaPadre" %}'></script>
     <p>Team OnlyPlants</p>
 </body>
 </html>
