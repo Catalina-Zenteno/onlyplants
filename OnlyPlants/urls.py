@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from OnlyPlants.views import bienvenida, inicia_sesión
 from nombreapp.views import index
+from OnlyPlants.views import intrucciones
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("bienvenida/", bienvenida),
     path("inicia_sesión/", inicia_sesión),
+    path("intrucciones/", intrucciones),
     #path("", include("nombreapp.urls")),
     path("", index),
 ]

@@ -1,4 +1,6 @@
 from django.http import HttpResponse
+from django.template import Template, Context
+from django.shortcuts import render
 
 #Esto es una vista
 def bienvenida(request):
@@ -6,3 +8,11 @@ def bienvenida(request):
 
 def inicia_sesión(request):
     return HttpResponse("<p style= 'color: green;'>Inicia sesión</p>")
+
+def intrucciones(request):
+    plantillaExterna= open("c:/OnlyPlants/onlyplants-1/nombreapp/templates/intrucciones.html")
+    template= Template(intrucciones.read())
+    plantillaExterna.close()
+    contexto= Context()
+    documento= template.render(contexto)
+    return HttpResponse(documento)
