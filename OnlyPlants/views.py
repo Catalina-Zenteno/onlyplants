@@ -10,8 +10,8 @@ def inicia_sesión(request):
     return HttpResponse("<p style= 'color: green;'>Inicia sesión</p>")
 
 def intrucciones(request):
-    plantillaExterna= open("c:/OnlyPlants/onlyplants-1/nombreapp/templates/intrucciones.html")
-    template= Template(intrucciones.read())
+    plantillaExterna= open("C:/Users/Usuario/OnlyPlants/onlyplants-1/nombreapp/templates/intrucciones.html")
+    template= Template(plantillaExterna.read())
     plantillaExterna.close()
     contexto= Context()
     documento= template.render(contexto)
