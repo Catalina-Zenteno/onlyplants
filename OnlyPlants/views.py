@@ -7,8 +7,8 @@ from django.template import loader
 def bienvenida(request):
     return HttpResponse("Only Plants")
 
-def inicia_sesión(request):
-    return HttpResponse("<p style= 'color: green;'>Inicia sesión</p>")
-
 def intrucciones(request):
     return render(request, "intrucciones.html")
+
+def inicio_sesion(request):
+    return render(request,"inicio_sesion.html")
