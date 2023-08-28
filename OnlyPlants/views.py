@@ -11,4 +11,4 @@ def intrucciones(request):
     return render(request, "intrucciones.html")
 
 def inicio_sesion(request):
-    return render(request,"inicio_sesion.html")
+    return render(request, "inicio_sesion.html")
