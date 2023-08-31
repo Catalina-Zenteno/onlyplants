@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
-    <link type='text/css' href='{% static "css/barra_navegacion" %}' rel='stylessheet'/>
+    <link rel='stylessheet' href='{% static "/css/barra_navegacion_styles.css" %}'/>
 </head>
 <body>
     <h1>OnlyPlants</h1>
     {% include "barra_navegacion.html" %}
-    <img src='{% static "img/plantas.jpg" %}'
+    <img src="{% static '/img/plantas.jpg' %}"/>
     {% block content %}
 
     {% endblock %}
-    <script type='text/javascript' src='{% static "js/plantillaPadre" %}'></script>
+    <script type='text/javascript' src='static/js/plantillaPadre.js'></script>
     <p>Team OnlyPlants</p>
 </body>
 </html>
