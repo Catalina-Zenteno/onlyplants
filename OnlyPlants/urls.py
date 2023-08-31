@@ -19,7 +19,7 @@ from django.urls import path, include
 from OnlyPlants.views import bienvenida
 from nombreapp.views import index
 from OnlyPlants.views import intrucciones
-from OnlyPlants.views import inicio_sesion
+from OnlyPlants.views import inicio_sesion, prueba
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +28,6 @@ urlpatterns = [
     path('inicio_sesion/',inicio_sesion),
     #path("", include("nombreapp.urls")),
     path("", index),
+    path('prueba/',prueba)
 ]
 

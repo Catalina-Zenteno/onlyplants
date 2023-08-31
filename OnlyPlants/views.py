@@ -12,3 +12,6 @@ def intrucciones(request):
 
 def inicio_sesion(request):
     return render(request, "inicio_sesion.html")
+
+def prueba(request):
+    return render(request,"prueba.html")
