@@ -24,10 +24,8 @@ from OnlyPlants.views import inicio_sesion, prueba
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("bienvenida/", bienvenida),
-    path("intrucciones/", intrucciones),
     path('inicio_sesion/',inicio_sesion),
     #path("", include("nombreapp.urls")),
     path("", index),
-    path('prueba/',prueba)
 ]
 

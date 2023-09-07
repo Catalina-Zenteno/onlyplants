@@ -7,11 +7,7 @@ from django.template import loader
 def bienvenida(request):
     return HttpResponse("Only Plants")
 
-def intrucciones(request):
-    return render(request, "intrucciones.html")
-
 def inicio_sesion(request):
     return render(request, "inicio_sesion.html")
 
-def prueba(request):
-    return render(request,"prueba.html")
+
