@@ -113,7 +113,7 @@ class preferencias(models.Model):
     )
     venenoso_humano=models.CharField(choices=venenoso_humano_choices)
     #La pregunta es: ¿Tienes mascotas en tu casa?
-    si= False #Entonces la planta no puede seer venenosa
+    si= False #Entonces la planta no puede ser venenosa
     no= True #Entonces no importa que la planta sea venenosa
     venenoso_mascota_choices= (
         (si, 'Sí'),
@@ -144,7 +144,7 @@ class preferencias(models.Model):
         (alto, 'Alto'),
     )
     nivel_de_atencion=models.CharField(choices=nivel_de_atencion_choices)
-    correo= models.ForeingKey(usuario, on_delete=models.CASCADE, db_column=correo)
+    correo= models.ForeingKey(usuario, on_delete=models.CASCADE, db_column='correo')
     def _str_ (self):
         return self.dimensiones, self.ciclo, self.riego, self.requerimiento_de_agua, self.periodo_de_riego, self.flores, self.luz_solar, self.fruta, self.medicinal,self.venenoso_humano, self.venenoso_mascota,self.tropical, self.interior, self.nivel_de_atencion, self.correo
     

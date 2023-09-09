@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from OnlyPlants.views import bienvenida
-from nombreapp.views import index
+from OnlyPlants.views import index
 from OnlyPlants.views import intrucciones
 from OnlyPlants.views import inicio_sesion, prueba
 
@@ -26,6 +26,6 @@ urlpatterns = [
     path("bienvenida/", bienvenida),
     path('inicio_sesion/',inicio_sesion),
     #path("", include("nombreapp.urls")),
-    path("", index),
+    path("usuarios/", index),
 ]
 

@@ -1,10 +1,23 @@
 {% load static %}
-
 <!DOCTYPE html>
-<html lang="en">  
-</html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
 </head>
-<img src="{%static '/img/plantas.jpg' %}">
-<link rel="stylesheet" href="{% static '/css/styles.css' %}"/>
+<body>
+    <h1>Usuarios</h1>
+    <Table border="1">
+        {% for x in usuario %}
+        <tr>
+            <td>{{ x.correo }}</td>
+            <td>{{ x.usuario }}</td>
+            <td>{{x.contraseña}}</td>
+        </tr>
+        {% endfor %}
+    </Table>
+</body>
+</html>
+
 
