@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-
+'''
 class usuario(models.Model):
     correo=models.AutoField(primary_key=True, name=str)
     usuario=models.CharField(
@@ -14,7 +14,9 @@ class usuario(models.Model):
     )
     def _str_(self):
         return self.correo, self.usuario, self.contraseña
-
+'''
+        
+'''
 class preferencias(models.Model):
     muy_pequeño= 'muy pequeño'
     pequeño='pequeño'
@@ -148,7 +150,7 @@ class preferencias(models.Model):
     def _str_ (self):
         return self.dimensiones, self.ciclo, self.riego, self.requerimiento_de_agua, self.periodo_de_riego, self.flores, self.luz_solar, self.fruta, self.medicinal,self.venenoso_humano, self.venenoso_mascota,self.tropical, self.interior, self.nivel_de_atencion, self.correo
     
-
+'''
 
 
         
