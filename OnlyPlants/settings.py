@@ -14,6 +14,7 @@ from pathlib import Path
 import django.contrib.staticfiles
 from os.path import join
 import os
+import psycopg2
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'OnlyPlants.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
+        'NAME': 'OnlyPlants',
         'USER': 'postgres',
         'PASSWORD': 'soloplantas',
         'HOST': 'localhost',

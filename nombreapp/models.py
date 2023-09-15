@@ -1,21 +1,28 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 '''
 class usuario(models.Model):
-    correo=models.AutoField(primary_key=True, name=str)
+    correo=models.CharField(primary_key=True, name=str)
     usuario=models.CharField(
         max_length = 20,
-        help_text = "Escribe tu nombre de usuario",
         )
     contraseña=models.CharField(
         max_length = 20,
-        help_text = "Escribe tu nombre de contraseña",
     )
     def _str_(self):
         return self.correo, self.usuario, self.contraseña
 '''
-        
+class Usuario(models.Model):
+    nombre=models.CharField(max_length=30)
+    #correo=models.CharField(primary_key=True)
+    
+
+
+
 '''
 class preferencias(models.Model):
     muy_pequeño= 'muy pequeño'
