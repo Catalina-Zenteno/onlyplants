@@ -18,8 +18,10 @@ class usuario(models.Model):
 '''
 class Usuario(models.Model):
     nombre=models.CharField(max_length=30)
-    #correo=models.CharField(primary_key=True)
-    
+    correo=models.EmailField(default="@gmail.com")
+    id=models.AutoField(primary_key=True)
+    contraseña=models.CharField(default="")
+
 
 
 
