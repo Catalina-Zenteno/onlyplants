@@ -4,28 +4,16 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 # Create your models here.
-'''
-class usuario(models.Model):
-    correo=models.CharField(primary_key=True, name=str)
-    usuario=models.CharField(
-        max_length = 20,
-        )
-    contraseña=models.CharField(
-        max_length = 20,
-    )
-    def _str_(self):
-        return self.correo, self.usuario, self.contraseña
-'''
+
 class Usuario(models.Model):
     nombre=models.CharField(max_length=30)
     correo=models.EmailField(default="@gmail.com")
     id=models.AutoField(primary_key=True)
     contraseña=models.CharField(default="")
+    def _str_(self):
+        return self.nombre, self.correo, self.id, self.contraseña
 
 
-
-
-'''
 class preferencias(models.Model):
     muy_pequeño= 'muy pequeño'
     pequeño='pequeño'
@@ -155,11 +143,11 @@ class preferencias(models.Model):
         (alto, 'Alto'),
     )
     nivel_de_atencion=models.CharField(choices=nivel_de_atencion_choices)
-    correo= models.ForeingKey(usuario, on_delete=models.CASCADE, db_column='correo')
+    conexion= models.ForeignKey(Usuario, on_delete=models.CASCADE, db_column='nombre')
     def _str_ (self):
         return self.dimensiones, self.ciclo, self.riego, self.requerimiento_de_agua, self.periodo_de_riego, self.flores, self.luz_solar, self.fruta, self.medicinal,self.venenoso_humano, self.venenoso_mascota,self.tropical, self.interior, self.nivel_de_atencion, self.correo
     
-'''
+
 
 
         
