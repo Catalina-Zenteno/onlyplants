@@ -13,12 +13,18 @@
             </tr>
         </thead>
         <tbody>
-            {% for u in Usuario %}
             <tr>
-                <td>{{u.nombre}}</td>
+                <td>id</td>
+                <td>nombre</td>
+                <td>correo</td>
+            </tr>
+            {% for u in usuarios %}
+            <tr>
+                <td>{{c.id}}</td>
+                <td>{{c.nombre}}</td>
+                <td>{{c.correo}}</td>
             </tr>
             {% endfor %}
-
         </tbody>
     </table>
 </body>

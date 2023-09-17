@@ -5,6 +5,6 @@ from .models import Usuario
 
 # Create your views here.
 def home(request):
-    usuariosListados=Usuario.objects.all()
-    return render(request, "gestionUsuarios.html")
+    usuarios=list(Usuario.objects.all())
+    return render(request, "gestionUsuarios.html",{"usuarios":usuarios})
 

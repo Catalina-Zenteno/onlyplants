@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from OnlyPlants.views import bienvenida
 from OnlyPlants.views import inicio_sesion, crear_cuenta
-from nombreapp.views import *
+from nombreapp.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
