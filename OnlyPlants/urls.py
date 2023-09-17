@@ -18,15 +18,16 @@ from django.contrib import admin
 from django.urls import path, include
 from OnlyPlants.views import bienvenida
 from OnlyPlants.views import inicio_sesion
-from nombreapp.views import home, crear_cuenta, postUsuario
+from nombreapp.views import home
+from .import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("bienvenida/", bienvenida),
     path('inicio_sesion/',inicio_sesion),
     path('',home),
-    path('crear_cuenta/', crear_cuenta),
-    path("crear_cuenta/redirect/",postUsuario, name='postUsuario'),
+    path('crear_cuenta/', views.postUsuario, name='Crearcuenta'),
+    #path("crear_cuenta/redirect/",postUsuario, name='postUsuario'),
     #path("", include("nombreapp.urls")),
     #path("usuarios/", index),
 ]
