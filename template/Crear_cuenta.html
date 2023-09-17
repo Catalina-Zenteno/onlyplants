@@ -6,17 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST">
+    <form method="post">
         {% csrf_token %}
         nombre:<br>
         <input name="nombre">
+        <input type="submit" name="nombre">
+    </form>
         <br><br>
         Email:<br>
         <input name="correo">
         <br><br>
         contraseña:<br>
         <input name="contraseña">
-        <input type="submit" value="Submit">
-    </form>
 </body>
 </html>

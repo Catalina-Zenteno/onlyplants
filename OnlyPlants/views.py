@@ -12,17 +12,9 @@ def bienvenida(request):
 def inicio_sesion(request):
     return render(request, "inicio_sesion.html")
 
-def crear_cuenta(request):
-    plantilla=loader.get_template('Crear_cuenta.html')
-    return HttpResponse(plantilla.render({},request))
 
-def postUsuario(request):
-    nombre=request.POST['nombre']
-    correo=request.POST['correo']
-    contraseña=request.POST['contraseña']
-    usuario= Usuario.objects.create(nombre=nombre,correo=correo,contraseña=contraseña)
-    usuario.save()
-    return HttpResponseRedirect(reverse('getUsuario'))
+
+
 
 
 '''

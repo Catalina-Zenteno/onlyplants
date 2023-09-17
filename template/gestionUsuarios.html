@@ -18,6 +18,7 @@
                 <td>nombre</td>
                 <td>correo</td>
             </tr>
+            {% if usuarios %}
             {% for u in usuarios %}
             <tr>
                 <td>{{c.id}}</td>
@@ -25,6 +26,7 @@
                 <td>{{c.correo}}</td>
             </tr>
             {% endfor %}
+            {% endif %}
         </tbody>
     </table>
 </body>

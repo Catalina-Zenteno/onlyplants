@@ -9,9 +9,10 @@ class Usuario(models.Model):
     nombre=models.CharField(max_length=30)
     correo=models.EmailField(default="@gmail.com")
     id=models.AutoField(primary_key=True)
-    contraseña=models.CharField(default="")
+    contraseña=models.CharField(max_length=120)
     def _str_(self):
         return self.nombre, self.correo, self.id, self.contraseña
+    
 
 
 class preferencias(models.Model):
