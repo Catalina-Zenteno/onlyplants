@@ -17,12 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from OnlyPlants.views import bienvenida
-from OnlyPlants.views import inicio_sesion
+from OnlyPlants.views import inicio_sesion, crear_cuenta
+from nombreapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("bienvenida/", bienvenida),
     path('inicio_sesion/',inicio_sesion),
+    path('',home),
+    path('crear_cuenta', crear_cuenta),
     #path("", include("nombreapp.urls")),
     #path("usuarios/", index),
 ]
