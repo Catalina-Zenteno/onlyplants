@@ -1,0 +1,56 @@
+{% extends "plantillaPadre.html" %}
+
+{% block title %} Crear cuenta {% endblock %}
+
+{% block content %}
+<h1>Cuestionario sobre tus preferencias</h1>
+
+<form method="post">
+    <h2>Ingresa tu nombre de usuario</h2>
+    <br><br>
+        nombre: <br>
+        <input name="nombre">
+</form>
+<form>
+    <h2>¿Cuales son las dimensiones de tu planta ideal?</h2>
+    <label>
+        <input type="radio" name="dimensiones" value="muy_pequeño">
+        muy_pequeño
+    </label><br>
+    <label>
+        <input type="radio" name="dimensiones" value="pequeño">
+        pequeño
+    </label><br>
+    <label>
+        <input type="radio" name="dimensiones" value="mediano">
+        mediano
+    </label><br>
+    <label>
+        <input type="radio" name="dimensiones" value="grande">
+        grande
+    </label><br>
+    <label>
+        <input type="radio" name="dimensiones" value="muy_grande">
+        muy_grande
+    </label><br>
+    <h2>¿Cual es el ciclo de tu planta ideal?</h2>
+    <label>
+        <input type="radio" name="ciclo" value="anual">
+        anual
+    </label><br>
+    <label>
+        <input type="radio" name="ciclo" value="bianual">
+        bianual
+    </label><br>
+    <label>
+        <input type="radio" name="ciclo" value="perenne">
+        perenne
+    </label><br>
+    <label>
+        <input type="radio" name="ciclo" value="bienal">
+        bienal
+    </label><br>
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock %}

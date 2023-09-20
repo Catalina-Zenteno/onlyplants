@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import Template, Context
-from .models import Usuario
+from .models import Usuario, preferencias
 from django.template import loader
 from django.urls import reverse
 
@@ -16,6 +16,16 @@ def home(request):
         "correo":registro.correo
         }
     return render(request, "gestionUsuarios.html",data)
+def gestionPreferencias(request):
+    preferencia=preferencias.objects.all()
+    print(preferencias)
+    registro = preferencias.objects.get(pk=21)
+    data={
+        "preferencia": preferencia,
+        "dimensiones":registro.dimensiones,
+        "ciclo":registro.ciclo
+        }
+    return render(request, "gestionPreferencias.html",data)
 '''
 def crear_cuenta(request):
     plantilla=loader.get_template('Crear_cuenta.html')
