@@ -30,9 +30,9 @@ class preferencias(models.Model):
     tropical=models.CharField(default='no')
     interior=models.CharField(default='no')
     nivel_de_atencion=models.CharField(default='alto')
-    #conexion= models.ForeignKey(Usuario, default=1, on_delete=models.CASCADE)
+    conexion= models.ForeignKey(Usuario, default=1, on_delete=models.CASCADE)
     def _str_ (self):
-        return self.dimensiones, self.ciclo, self.riego, self.requerimiento_de_agua, self.periodo_de_riego, self.flores, self.luz_solar, self.fruta, self.medicinal,self.venenoso_humano, self.venenoso_mascota,self.tropical, self.interior, self.nivel_de_atencion 
+        return self.dimensiones, self.ciclo, self.riego, self.requerimiento_de_agua, self.periodo_de_riego, self.flores, self.luz_solar, self.fruta, self.medicinal,self.venenoso_humano, self.venenoso_mascota,self.tropical, self.interior, self.nivel_de_atencion, self.conexion
 
 
         

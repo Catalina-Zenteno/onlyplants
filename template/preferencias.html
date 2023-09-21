@@ -7,11 +7,9 @@
 
 <form method="post">
     {% csrf_token %}
-    <h2>Ingresa tu nombre de usuario</h2>
-    <br><br>
-        nombre: <br>
-        <input name="nombre">
-
+    <h2>Escribe tu id de usuario</h2>
+        conexion:<br>
+        <input name="conexion">
     <h2>¿Cuales son las dimensiones de tu planta ideal?</h2>
     <label>
         <input type="radio" name="dimensiones" value="muy_pequeño">
@@ -50,7 +48,147 @@
         <input type="radio" name="ciclo" value="bienal">
         bienal
     </label><br>
-    <input type="submit" value="Enviar">
+    <h2>¿cada cuanto tiempo puedes regar la planta?</h2>
+    <label>
+        <input type="radio" name="riego" value="frecuente">
+        frecuente
+    </label><br>
+    <label>
+        <input type="radio" name="riego" value="promedio">
+        promedio
+    </label><br>
+    <label>
+        <input type="radio" name="riego" value="minimo">
+        minimo
+    </label><br>
+    <label>
+        <input type="radio" name="riego" value="nunca">
+        nunca
+    </label><br>
+    <h2>¿De cuanta agua dispone para la planta?</h2>
+    <label>
+        <input type="radio" name="requerimiento_de_agua" value="mucho">
+        mucho
+    </label><br>
+    <label>
+        <input type="radio" name="requerimiento_de_agua" value="regular">
+        regular
+    </label><br>
+    <label>
+        <input type="radio" name="requerimiento_de_agua" value="poco">
+        poco
+    </label><br>
+    <label>
+    <input type="radio" name="requerimiento_de_agua" value="nada">
+        nada
+    </label><br> 
+    <h2>¿En que momento puede regar la planta?</h2>
+    <label>
+        <input type="radio" name="periodo_de_riego" value="mañana">
+        mañana
+    </label><br>
+    <label>
+        <input type="radio" name="periodo_de_riego" value="tarde">
+        tarde
+    </label><br>
+    <label>
+        <input type="radio" name="periodo_de_riego" value="noche">
+        noche
+    </label><br>
+    <h2>¿Quiere que la planta tenga flores?</h2>
+    <label>
+        <input type="radio" name="flores" value="si">
+        si
+    </label><br>
+<label>
+    <input type="radio" name="flores" value="no">
+    no
+    </label><br>
+    <h2>¿que condiciones de luz tendria la planta?</h2>
+    <label>
+        <input type="radio" name="luz_solar" value="sombra">
+        sombra
+</label><br>
+<label>
+    <input type="radio" name="luz_solar" value="sombra_parcial">
+    sombra_parcial
+    </label><br>
+    <label>
+        <input type="radio" name="luz_solar" value="sol_y_sombra">
+        sol_y_sombra
+    </label><br>
+    <label>
+    <input type="radio" name="luz_solar" value="sol">
+    sol
+    </label><br>
+    <h2>¿Quieres que tu planta tenga fruta?</h2>
+    <label>
+        <input type="radio" name="fruta" value="si">
+        si
+    </label><br>
+    <label>
+        <input type="radio" name="fruta" value="no">
+        no
+    </label><br>
+    <h2>¿Quieres que tu planta sea medicinal?</h2>
+    <label>
+        <input type="radio" name="medicinal" value="si">
+        si
+    </label><br>
+    <label>
+        <input type="radio" name="medicinal" value="no">
+        no
+    </label><br>
+<h2>¿tienes niños pequeños en casa?</h2>
+    <label>
+        <input type="radio" name="venenoso_humano" value="si">
+        si
+    </label><br>
+    <label>
+        <input type="radio" name="venenoso_humano" value="no">
+        no
+    </label><br> 
+<h2>¿tienes mascotas en casa?</h2>
+    <label>
+        <input type="radio" name="venenoso_mascota" value="si">
+        si
+    </label><br>
+    <label>
+        <input type="radio" name="venenoso_mascota" value="no">
+        no
+    </label><br> 
+    <h2>¿Te gustaria tener una planta tropical?</h2>
+    <label>
+        <input type="radio" name="tropical" value="si">
+        si
+    </label><br>
+    <label>
+        <input type="radio" name="tropical" value="no">
+        no
+    </label><br>
+<h2>¿Te gustaria tener una planta de interior?</h2>
+    <label>
+        <input type="radio" name="interior" value="si">
+        si
+    </label><br>
+    <label>
+        <input type="radio" name="interior" value="no">
+        no
+    </label><br>
+<h2>¿que nivel de atencion puedes otorgarle a la planta?</h2>
+<label>
+    <input type="radio" name="nivel_de_atencion" value="bajo">
+    bajo
+</label><br>
+<label>
+    <input type="radio" name="nivel_de_atencion" value="mediano">
+    mediano
+</label><br>
+<label>
+    <input type="radio" name="nivel_de_atencion" value="alto">
+    alto
+</label><br>
+<input type="submit" value="Enviar">
 </form>
 
 {% endblock %}
