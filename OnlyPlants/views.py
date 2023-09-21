@@ -52,7 +52,7 @@ def postUsuario(request):
 def postPreferencias(request):
     if request.method=='POST':
         print('a')
-        nombre= request.POST.get('nombre', '').lower().replace(' ', '%20')
+        #nombre= request.POST.get('nombre', '').lower().replace(' ', '%20')
         dimensiones = request.POST.get('dimensiones', '').lower().replace(' ', '%20')
         ciclo = request.POST.get('ciclo', '').lower().replace(' ', '%20')
         #riego= request.POST.get('riego', '').lower().replace(' ', '%20')
@@ -72,13 +72,14 @@ def postPreferencias(request):
             try:
                 print(dimensiones)
                 #usuario= Usuario.objects.create(dimensiones=dimensiones, ciclo=ciclo, riego=riego, requerimiento_de_agua=requerimiento_de_agua,periodo_de_riego=periodo_de_riego,flores=flores,luz_solar=luz_solar,fruta=fruta,medicinal=medicinal,venenoso_humano=venenoso_humano,venenoso_mascota=venenoso_mascota,tropical=tropical,interior=interior,nivel_de_atencion=nivel_de_atencion,nombre=nombre)
-                usuario= Usuario.objects.create(dimensiones=dimensiones, ciclo=ciclo, nombre=nombre)
-                usuario.save()
-                usuario1=Usuario.objects.all()
-                print(usuario1)
-                registro = Usuario.objects.get(pk=1)
-                dimensiones=registro.dimensiones
-                ciclo= registro.ciclo
+                preferencia= preferencias.objects.create(dimensiones=dimensiones, ciclo=ciclo)
+                preferencia.save()
+                preferencia1=preferencias.objects.all()
+                print(preferencia1)
+                #registro = preferencias.objects.get(pk=1)
+                #print(registro)
+                #dimensiones=registro.dimensiones
+                #ciclo= registro.ciclo
                 #riego= registro.riego
                 #requerimiento_de_agua=registro.requerimiento_de_agua
                 #periodo_de_riego=registro.periodo_de_riego
@@ -91,7 +92,7 @@ def postPreferencias(request):
                 #tropical=registro.tropical
                 #interior=registro.interior
                 #nivel_de_atencion=registro.nivel_de_atencion
-                nombre=registro.nombre
+                #nombre=registro.nombre
                 print(dimensiones)
                 print(ciclo)
                 #print(riego)
@@ -106,7 +107,7 @@ def postPreferencias(request):
                 #print(tropical)
                 #print(interior)
                 #print(nivel_de_atencion)
-                print(nombre)
+                #print(nombre)
                 plantilla=loader.get_template('preferencias.html')
                 return HttpResponseRedirect(reverse('preferencias'))
             except Exception as e:

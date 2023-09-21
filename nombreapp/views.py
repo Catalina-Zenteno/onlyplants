@@ -8,7 +8,7 @@ from django.urls import reverse
 # Create your views here.
 def home(request):
     usuarios=Usuario.objects.all()
-    print(usuarios)
+    #print(usuarios)
     registro = Usuario.objects.get(pk=21)
     data={
         "usuarios": usuarios,
@@ -19,11 +19,9 @@ def home(request):
 def gestionPreferencias(request):
     preferencia=preferencias.objects.all()
     print(preferencias)
-    registro = preferencias.objects.get(pk=21)
+    #registro = preferencias.objects.get(pk=21)
     data={
         "preferencia": preferencia,
-        "dimensiones":registro.dimensiones,
-        "ciclo":registro.ciclo
         }
     return render(request, "gestionPreferencias.html",data)
 '''

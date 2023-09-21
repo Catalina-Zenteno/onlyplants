@@ -6,12 +6,12 @@
 <h1>Cuestionario sobre tus preferencias</h1>
 
 <form method="post">
+    {% csrf_token %}
     <h2>Ingresa tu nombre de usuario</h2>
     <br><br>
         nombre: <br>
         <input name="nombre">
-</form>
-<form>
+
     <h2>¿Cuales son las dimensiones de tu planta ideal?</h2>
     <label>
         <input type="radio" name="dimensiones" value="muy_pequeño">
