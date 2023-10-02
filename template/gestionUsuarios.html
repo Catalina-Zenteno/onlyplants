@@ -1,38 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion de Usuarios</title>
-</head>
-<body>
-    <table>
-        <thead>
-            <tr>
-                <th>Usuario</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>id</td>
-                <td>nombre</td>
-                <td>correo</td>
-            </tr>
-            {% if usuarios %}
-            {% for u in usuarios %}
-            <tr>
-                <td>{{u.id}}</td>
-                <td>{{u.nombre}}</td>
-                <td>{{u.correo}}</td>
-            </tr>
-            {% endfor %}
-            {% endif %}
-            {% if nombre %}
-                <td>id</td>
-                <td>{{nombre}}</td>
-                <td>{{correo}}</td>
-            {% endif %}
-        </tbody>
-    </table>
-</body>
-</html>
+{% extends "plantillaPadre.html" %}
+
+{% block title %} Gestion Usuarios {% endblock %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>id</td>
+            <td>nombre</td>
+            <td>correo</td>
+        </tr>
+        {% if usuarios %}
+        {% for u in usuarios %}
+        <tr>
+            <td>{{u.id}}</td>
+            <td>{{u.nombre}}</td>
+            <td>{{u.correo}}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+        {% if nombre %}
+            <td>id</td>
+            <td>{{nombre}}</td>
+            <td>{{correo}}</td>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

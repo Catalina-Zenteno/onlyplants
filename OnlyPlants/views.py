@@ -19,15 +19,9 @@ def postUsuario(request):
         nombre = request.POST.get('nombre', '').lower().replace(' ', '%20')
         correo = request.POST.get('correo', '').lower().replace(' ', '%20')
         contraseña= request.POST.get('contraseña', '').lower().replace(' ', '%20')
-        #nombre=request.POST['nombre'].lower()
-        #nombre=nombre.replace(' ','%20')
         if nombre:
             try:
                 print(nombre)
-                #nombre=request.POST['nombre']
-                #correo=request.POST['correo']
-                #contraseña=request.POST['contraseña']
-                #usuario= Usuario.objects.create(nombre=nombre,correo=correo,contraseña=contraseña)
                 usuario= Usuario.objects.create(nombre=nombre, correo=correo, contraseña=contraseña)
                 usuario.save()
                 usuario1=Usuario.objects.all()
