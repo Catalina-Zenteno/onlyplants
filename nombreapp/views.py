@@ -19,7 +19,7 @@ def home(request):
 def gestionPreferencias(request):
     preferencia=preferencias.objects.all()
     print(preferencias)
-    #registro = preferencias.objects.get(pk=21)
+    #registro = preferencias.objects.get(pk=1)
     data={
         "preferencia": preferencia,
         }

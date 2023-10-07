@@ -3,7 +3,10 @@
 {% block title %} Gestion Usuarios {% endblock %}
 
 {% block content %}
-<table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Usuario</th>
@@ -30,5 +33,8 @@
             <td>{{correo}}</td>
         {% endif %}
     </tbody>
-</table>
+</table> 
+        </div>
+    </div>
+</div>
 {% endblock %}
