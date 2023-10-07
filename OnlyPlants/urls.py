@@ -29,6 +29,7 @@ urlpatterns = [
     path('crear_cuenta/', views.postUsuario, name='Crearcuenta'),
     path('preferencias/',views.postPreferencias, name='preferencias'),
     path('gestionPreferencias/',gestionPreferencias),
+    path("Encuentra_tu_planta/",views.feed)
     #path("crear_cuenta/redirect/",postUsuario, name='postUsuario'),
     #path("", include("nombreapp.urls")),
     #path("usuarios/", index),

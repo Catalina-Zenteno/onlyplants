@@ -120,3 +120,5 @@ def index(request):
     }
 
 '''
+def feed(request):
+    return render(request, "feed.html")
