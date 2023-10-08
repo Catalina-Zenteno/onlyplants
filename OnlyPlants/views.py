@@ -4,6 +4,10 @@ from django.shortcuts import render
 from django.template import loader
 from nombreapp.models import Usuario, preferencias
 from django.urls import reverse
+import urllib.request
+import json
+from nombreapp.models import Usuario, preferencias
+from .import funciones_para_filtro
 
 #Esto es una vista
 def bienvenida(request):
@@ -121,4 +125,27 @@ def index(request):
 
 '''
 def feed(request):
+    url= urllib.request.Request(f'https://perenual.com/api/species-list?key=sk-CLbk6521e23f71c8f2231')
+    url.add_header('user-agent','hola')
+    #preferencias=preferencias.objects.get(pk=1)
+    preferencias={'dimensiones':'muy_grande',
+                  'ciclo':'perenne',
+                  'riego':'promedio',
+                  'requerimiento_de_agua':'poco',
+                  'periodo_de_riego':'noche',
+                  'flores':'si',
+                  'luz_solar':'sol',
+                  'fruta':'no',
+                  'medicinal':'no',
+                  'venenoso_humano':'no',
+                  'venenoso_mascota':'no',
+                  'tropical':'no',
+                  'interior':'si',
+                  'nivel_de_atencion':'alto',
+                  }
+    source=urllib.request.urlopen(url).read()
+    list_of_data=json.loads(source)
+    preferencias=funciones_para_filtro.traduccion(preferencias)
+    plantas=funciones_para_filtro.comparar(preferencias, list_of_data)
+    print(plantas)
     return render(request, "feed.html")
