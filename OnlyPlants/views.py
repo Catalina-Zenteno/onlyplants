@@ -2,15 +2,15 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import Template, Context
 from django.shortcuts import render, redirect
 from django.template import loader
-from nombreapp.models import Usuario, preferencias
+from nombreapp.models import preferencias
 from django.urls import reverse
 import urllib.request
 import json
-from nombreapp.models import Usuario, preferencias
 from .import funciones_para_filtro
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.contrib.auth import logout
 
 #Esto es una vista
@@ -31,32 +31,7 @@ def postUsuario(request):
         form= UserCreationForm()
     context= {'form' : form}
     return render(request, 'Crear_cuenta.html',context)
-    '''
-        nombre = request.POST.get('nombre', '').lower().replace(' ', '%20')
-        correo = request.POST.get('correo', '').lower().replace(' ', '%20')
-        contraseña= request.POST.get('contraseña', '').lower().replace(' ', '%20')
-        if nombre:
-            try:
-                print(nombre)
-                usuario= Usuario.objects.create(nombre=nombre, correo=correo, contraseña=contraseña)
-                usuario.save()
-                usuario1=Usuario.objects.all()
-                print(usuario1)
-                registro = Usuario.objects.get(pk=21)
-                nombre=registro.nombre
-                correo= registro.correo
-                contraseña= registro.contraseña
-                print(nombre)
-                print(correo)
-                print(contraseña)
-                plantilla=loader.get_template('Crear_cuenta.html')
-                return HttpResponseRedirect(reverse('Crearcuenta'))
-            except Exception as e:
-                print('error')
-                return render(request, "error.html")
-    #return HttpResponse(plantilla.render({},request))
-    else:
-    '''
+    
 
 def postPreferencias(request):
     if request.method=='POST':
@@ -76,7 +51,7 @@ def postPreferencias(request):
         tropical= request.POST.get('tropical', '').lower().replace(' ', '%20')
         interior= request.POST.get('interior', '').lower().replace(' ', '%20')
         nivel_de_atencion= request.POST.get('nivel_de_atencion', '').lower().replace(' ', '%20')
-        conexion= request.POST.get('conexion', '').lower().replace(' ', '%20')
+        conexion=request.user.id
         if dimensiones:
             try:
                 print(dimensiones)
@@ -127,14 +102,8 @@ def postPreferencias(request):
     else:
        return render(request, 'preferencias.html')
 
-'''
-def index(request):
-    usuario=usuario.objects.all().values()
-    context={
-        'usuario': usuario,
-    }
 
-'''
+
 def feed(request):
     url= urllib.request.Request(f'https://perenual.com/api/species-list?key=sk-CLbk6521e23f71c8f2231')
     url.add_header('user-agent','hola')

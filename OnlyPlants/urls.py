@@ -18,18 +18,18 @@ from django.contrib import admin
 from django.urls import path, include
 from OnlyPlants.views import bienvenida 
 from OnlyPlants.views import inicio_sesion, home
-from nombreapp.views import gestionPreferencias, AcercaDeNosotros, perfil
+from nombreapp.views import AcercaDeNosotros, perfil
+from nombreapp.views import gestionPreferencias
 from .import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("bienvenida/", bienvenida),
     path('inicio_sesion/',inicio_sesion),
-    #path('gestionUsuarios/',gestionUsuarios),
     path('perfil/', perfil, name= 'profile'),
     path('crear_cuenta/', views.postUsuario, name='Crearcuenta'),
     path('preferencias/',views.postPreferencias, name='preferencias'),
-    path('gestionPreferencias/',gestionPreferencias),
+    #path('gestionPreferencias/',gestionPreferencias),
     path("Encuentra_tu_planta/",views.feed),
     path('Acerca_de_nosotros/', AcercaDeNosotros),
     path('',home),
