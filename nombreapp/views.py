@@ -6,7 +6,7 @@ from django.template import loader
 from django.urls import reverse
 
 # Create your views here.
-def home(request):
+def gestionUsuarios(request):
     usuarios=Usuario.objects.all()
     #print(usuarios)
     registro = Usuario.objects.get(pk=21)
@@ -41,3 +41,5 @@ def postUsuario(request):
     #return HttpResponse(plantilla.render({},request))
     return render(request, 'Crear_cuenta.html')
 '''
+def AcercaDeNosotros(request):
+    return render(request, 'Acerca_de_nosotros.html')

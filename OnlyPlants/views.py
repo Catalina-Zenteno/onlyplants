@@ -149,3 +149,7 @@ def feed(request):
     plantas=funciones_para_filtro.comparar(preferencias, list_of_data)
     print(plantas)
     return render(request, "feed.html")
+
+
+def home(request):
+    return render(request, 'home.html')
