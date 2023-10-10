@@ -32,6 +32,7 @@ urlpatterns = [
     path("Encuentra_tu_planta/",views.feed),
     path('Acerca_de_nosotros/', AcercaDeNosotros),
     path('',home),
+    path('accounts/', include('django.contrib.auth.urls')),
     #path("crear_cuenta/redirect/",postUsuario, name='postUsuario'),
     #path("", include("nombreapp.urls")),
     #path("usuarios/", index),

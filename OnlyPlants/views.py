@@ -8,13 +8,11 @@ import urllib.request
 import json
 from nombreapp.models import Usuario, preferencias
 from .import funciones_para_filtro
-
+from django.contrib.auth.decorators import login_required
 #Esto es una vista
 def bienvenida(request):
     return HttpResponse("Only Plants")
 
-def inicio_sesion(request):
-    return render(request, "inicio_sesion.html")
 
 
 def postUsuario(request):
@@ -153,3 +151,8 @@ def feed(request):
 
 def home(request):
     return render(request, 'home.html')
+
+@login_required
+def inicio_sesion(request):
+    return render(request, "inicio_sesion.html")
+    
