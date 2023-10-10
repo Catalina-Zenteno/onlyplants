@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import Template, Context
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
 from nombreapp.models import Usuario, preferencias
 from django.urls import reverse
@@ -9,6 +9,10 @@ import json
 from nombreapp.models import Usuario, preferencias
 from .import funciones_para_filtro
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.contrib.auth import logout
+
 #Esto es una vista
 def bienvenida(request):
     return HttpResponse("Only Plants")
@@ -16,8 +20,18 @@ def bienvenida(request):
 
 
 def postUsuario(request):
+    
     if request.method=='POST':
         print('a')
+        form= UserCreationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            return redirect('../preferencias')
+    else:
+        form= UserCreationForm()
+    context= {'form' : form}
+    return render(request, 'Crear_cuenta.html',context)
+    '''
         nombre = request.POST.get('nombre', '').lower().replace(' ', '%20')
         correo = request.POST.get('correo', '').lower().replace(' ', '%20')
         contraseña= request.POST.get('contraseña', '').lower().replace(' ', '%20')
@@ -42,8 +56,7 @@ def postUsuario(request):
                 return render(request, "error.html")
     #return HttpResponse(plantilla.render({},request))
     else:
-       return render(request, 'Crear_cuenta.html')
-
+    '''
 
 def postPreferencias(request):
     if request.method=='POST':
@@ -151,6 +164,10 @@ def feed(request):
 
 def home(request):
     return render(request, 'home.html')
+
+def salir(request):
+    logout(request)
+    return redirect("/")
 
 @login_required
 def inicio_sesion(request):

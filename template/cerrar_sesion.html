@@ -1,0 +1,9 @@
+{% extends "plantillaPadre.html" %}
+
+{% block title %} Cerrar sesion {% endblock %}
+
+{% block content %}
+    <h1>¿Deseas cerrar tu sesion?</h1>
+    <a href="{% url 'salir' %}"> Cerrar Sesion</a>
+    
+{% endblock %}

@@ -16,16 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from OnlyPlants.views import bienvenida
+from OnlyPlants.views import bienvenida 
 from OnlyPlants.views import inicio_sesion, home
-from nombreapp.views import gestionUsuarios, gestionPreferencias, AcercaDeNosotros
+from nombreapp.views import gestionPreferencias, AcercaDeNosotros, perfil
 from .import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("bienvenida/", bienvenida),
     path('inicio_sesion/',inicio_sesion),
-    path('gestionUsuarios/',gestionUsuarios),
+    #path('gestionUsuarios/',gestionUsuarios),
+    path('perfil/', perfil, name= 'profile'),
     path('crear_cuenta/', views.postUsuario, name='Crearcuenta'),
     path('preferencias/',views.postPreferencias, name='preferencias'),
     path('gestionPreferencias/',gestionPreferencias),
@@ -33,6 +34,7 @@ urlpatterns = [
     path('Acerca_de_nosotros/', AcercaDeNosotros),
     path('',home),
     path('accounts/', include('django.contrib.auth.urls')),
+    path("salir/", views.salir, name='salir')
     #path("crear_cuenta/redirect/",postUsuario, name='postUsuario'),
     #path("", include("nombreapp.urls")),
     #path("usuarios/", index),

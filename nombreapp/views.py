@@ -4,18 +4,18 @@ from django.template import Template, Context
 from .models import Usuario, preferencias
 from django.template import loader
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your views here.
-def gestionUsuarios(request):
-    usuarios=Usuario.objects.all()
-    #print(usuarios)
-    registro = Usuario.objects.get(pk=21)
-    data={
-        "usuarios": usuarios,
-        "nombre":registro.nombre,
-        "correo":registro.correo
-        }
-    return render(request, "gestionUsuarios.html",data)
+
+def perfil(request, username=None):
+    current_user=request.user
+    if username and username != current_user.username:
+        user = User.objects.get(username=username)
+    else:
+        user = current_user
+    return render(request, 'perfil.html', {'user':user})
+
 def gestionPreferencias(request):
     preferencia=preferencias.objects.all()
     print(preferencias)
