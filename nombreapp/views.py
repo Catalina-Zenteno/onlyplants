@@ -16,8 +16,8 @@ def perfil(request, username=None):
         user = current_user
     return render(request, 'perfil.html', {'user':user})
 
-def gestionPreferencias(request):
-    preferencia=preferencias.objects.all()
+def gestionPreferencias(request,id):
+    preferencia=preferencias.objects.get(conexion=User.objects.get(id=id))
     print(preferencias)
     #registro = preferencias.objects.get(pk=1)
     data={

@@ -1,5 +1,33 @@
 import urllib.request
 import json
+from nombreapp.models import preferencias
+
+
+def pasar_a_diccionario(preferencia_objeto):
+    preferencia={}
+    preferencia['dimensiones']=preferencia_objeto.dimensiones
+    print(preferencia_objeto.dimensiones)
+    preferencia['ciclo']=preferencia_objeto.ciclo
+    preferencia['riego']=preferencia_objeto.riego
+    preferencia['requerimiento_de_agua']=preferencia_objeto.requerimiento_de_agua
+    preferencia['periodo_de_riego']=preferencia_objeto.periodo_de_riego
+    preferencia['flores']=preferencia_objeto.flores
+    preferencia['luz_solar']=preferencia_objeto.luz_solar
+    preferencia['fruta']=preferencia_objeto.fruta
+    preferencia['medicinal']=preferencia_objeto.medicinal
+    preferencia['venenoso_humano']=preferencia_objeto.venenoso_humano
+    preferencia['venenoso_mascota']=preferencia_objeto.venenoso_mascota
+    preferencia['tropical']=preferencia_objeto.tropical
+    preferencia['interior']=preferencia_objeto.interior
+    preferencia['nivel_de_atencion']=preferencia_objeto.nivel_de_atencion
+    return preferencia
+
+def encontrar_preferencias(id_usuario):
+    preferencia_objeto= preferencias.objects.get(id=3)
+    print(preferencia_objeto)
+    preferencia=pasar_a_diccionario(preferencia_objeto)
+    return preferencia
+
 def traduccion(preferencias):
     for p in preferencias:
         if p == 'dimensiones':
