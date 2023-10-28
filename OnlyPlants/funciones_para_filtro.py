@@ -23,7 +23,8 @@ def pasar_a_diccionario(preferencia_objeto):
     return preferencia
 
 def encontrar_preferencias(id_usuario):
-    preferencia_objeto= preferencias.objects.get(id=3)
+    id_usuario=id_usuario +2
+    preferencia_objeto= preferencias.objects.get(id=id_usuario)
     print(preferencia_objeto)
     preferencia=pasar_a_diccionario(preferencia_objeto)
     return preferencia
@@ -120,7 +121,7 @@ def comparar(preferencias, list_of_data):
                     #print("prueba")
                     plantas.append(planta)
                     id=planta['id']
-                    url= urllib.request.Request(f'https://perenual.com/api/species/details/'+str(id)+'?key=sk-CLbk6521e23f71c8f2231')
+                    url= urllib.request.Request(f'https://perenual.com/api/species/details/'+str(id)+'?key=sk-yl4e6521da2899f312380')
                     url.add_header('user-agent','hola')
                     source=urllib.request.urlopen(url).read()
                     list_of_data2=json.loads(source)

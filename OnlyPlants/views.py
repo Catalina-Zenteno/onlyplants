@@ -106,17 +106,93 @@ def postPreferencias(request):
 
 
 def feed(request):
-    url= urllib.request.Request(f'https://perenual.com/api/species-list?key=sk-CLbk6521e23f71c8f2231')
-    url.add_header('user-agent','hola')
     id_usuario=request.user.id
     conexion=User.objects.get(id=id_usuario)
-    preferencia=funciones_para_filtro.encontrar_preferencias(id_usuario)
-    source=urllib.request.urlopen(url).read()
-    list_of_data=json.loads(source)
-    preferencia=funciones_para_filtro.traduccion(preferencia)
-    plantas=funciones_para_filtro.comparar(preferencia, list_of_data)
-    print(plantas)
-    return render(request, "feed.html")
+    nombre=request.user.username
+    print(nombre)
+    alo=True
+    if alo:
+        url= urllib.request.Request(f'https://perenual.com/api/species-list?key=sk-yl4e6521da2899f312380')
+        url.add_header('user-agent','hola')
+        preferencia=funciones_para_filtro.encontrar_preferencias(id_usuario)
+        source=urllib.request.urlopen(url).read()
+        list_of_data=json.loads(source)
+        preferencia=funciones_para_filtro.traduccion(preferencia)
+        plantas=funciones_para_filtro.comparar(preferencia, list_of_data)
+        #print(plantas)
+        for planta in plantas:
+            #print(planta)
+            if planta['default_image']!= None:
+                planta['default_image']=planta['default_image']['medium_url']
+            for elemento in planta:
+                if type(planta[elemento]) == list:
+                    stri=''
+                    for el in elemento:
+                        stri+=str(el)
+                    planta[elemento]=stri
+        texto=open(nombre + '.txt','w')
+        texto.write(str(plantas))
+        texto.close()
+        texto3=open(nombre + 'id.txt','w')
+        id=0
+        texto3.write(str(id))
+        texto3.close()
+        texto2=open(nombre + 'preferencias.txt','a')
+        texto2.close()
+    return render(request, 'feed.html')
+
+def base(request):
+    id_usuario=request.user.id
+    conexion=User.objects.get(id=id_usuario)
+    nombre=request.user.username
+    texto=open(nombre + '.txt',"r")
+    listaaaa=[]
+    p=0
+    for linea in texto:
+        #print(linea)
+        listaaaa.append(linea)
+    convertir=listaaaa[0]
+    texto.close()
+    texto3=open(nombre + 'id.txt','r')
+    for linea in texto3:
+        id=int(linea.strip())
+    texto3.close()
+    lista1= list(convertir.strip().split("}, {"))
+    #print(lista1)
+    #print(id, lista1)
+    hola=str(lista1[id])+'}}'
+    hola = str(hola)
+    #print('------------jkjkjkjkjkjk')
+    #print(hola)
+    lista=list(hola.strip().split(','))
+    #print(lista)
+    planta={}
+    for elemento in lista:
+        print(elemento)
+        llave,respuesta=elemento.strip().split(":",1)
+        planta[llave]=respuesta
+    #print(planta)
+    texto3=open(nombre + 'id.txt',"w")
+    texto3.write(str(id+1))
+    texto3.close()
+    if request.method=='POST':
+        #print('a')
+        respuesta = request.POST.get('respuesta', '').lower().replace(' ', '%20')
+        print('respuesta')
+        if respuesta=='si':
+            texto2=open(nombre + 'preferencias.txt','a')
+            modelo='{0} : {1} \n'
+            texto2.write('----------- \n')
+            for elemento in planta:
+                texto2.write(modelo.format(elemento, planta[elemento]))
+            texto2.close()
+        elif respuesta=='no':
+            print('no')
+    print(planta)
+    imagen=planta["'default_image'"][2:-3]
+    print(imagen)
+    return render(request, "base.html", {'imagen':imagen,'nombre':planta["'common_name'"],"scientific_name":planta["'scientific_name'"]})
+    #return render(request, 'ups.html')
 
 
 def home(request):

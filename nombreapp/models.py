@@ -31,8 +31,3 @@ class preferencias(models.Model):
         verbose_name_plural="Preferencias"
         db_table="Preferencia"
         ordering=['conexion']
-
-
-        
-
-

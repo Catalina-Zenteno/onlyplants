@@ -1,0 +1,37 @@
+{% extends "plantillaPadre.html" %}
+
+{% block title %} Inicio sesi&oacute;n {% endblock %}
+
+{% block content %}
+<div class="mx-auto" style="width: 200px;">
+    <div class="card" style="width: 18rem;">
+        <img src={{imagen}} class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Planta</h5>
+            <p class="card-text">
+                ...
+            </p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Name: {{nombre}}</li>
+            <li class="list-group-item">Watering: {{scientific_name}}</li>
+            <li class="list-group-item">Harvest_method: {{Harvest_method}}</li>
+            <li class="list-group-item">Invasive: {{Invasive}}</li>
+            <li class="list-group-item">Rare_level: {{Rare_level}}</li>
+        </ul>
+    </div>
+    <form method="post">
+    {% csrf_token %}
+    <label>
+        <input type="radio" name="respuesta" value="si">
+            <img src="https://static.vecteezy.com/system/resources/previews/017/178/349/original/love-heart-symbol-on-transparent-background-free-png.png" width="110" height="110" >
+    </label><br>
+    <label>
+        <input type="radio" name="respuesta" value="no">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/2048px-Red_X.svg.png" width="110" height="110" >     
+    </label><br>
+    <input type="submit" value="Enviar">
+    </form>
+</div>
+
+{% endblock %}
