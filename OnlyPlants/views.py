@@ -202,6 +202,39 @@ def salir(request):
     logout(request)
     return redirect("/")
 
+def MisPreferencias(request):
+    nombre=request.user.username
+    archivo=open(nombre + 'preferencias.txt','r')
+    i=0
+    lista=[]
+    dic={}
+    for linea in archivo:
+        if "------" in linea:
+            i+=1
+        else:
+            #print(linea)
+            llave1,resultado=linea.strip().split(" :  ")
+            llave1=llave1[1:-1]
+            if llave1=="default_image":
+                resultado=resultado[1:-3]
+                print(resultado)
+            print(llave1)
+            dic[llave1]=resultado
+            #print(llave1, dic[llave1])
+            if i==2:
+                lista.append(dic)
+                print(dic)
+                dic={}
+                i=0
+    print(lista)
+    contexto={
+        "lista":lista
+    }
+    #print(lista)   
+    print(lista[1]["common_name"])     
+
+    return render(request,"MisPreferencias.html",contexto)
+
 @login_required
 def inicio_sesion(request):
     return render(request, "inicio_sesion.html")

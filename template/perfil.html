@@ -5,7 +5,9 @@
 {% block content %}
     <h1>@{{ user.username }}</h1>
     <h2>Id: {{ user.id }}</h2>
+    <img src="../static/img/Imagen.png" class="img-fluid" alt="Responsive image" width="1400" height="300">
     <h1></h1>
     <h1></h1>
-    <h2>Preferencias guardadas</h2>
+    <h1>Mis preferencias guardadas:</h1>
+    <a class="btn btn-success"  href="../MisPreferencias" role="button">Mis preferencias</a>
 {% endblock %}

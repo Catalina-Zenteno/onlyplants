@@ -36,6 +36,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path("salir/", views.salir, name='salir'),
     path("base/",views.base),
+    path("MisPreferencias/",views.MisPreferencias),
     #path("crear_cuenta/redirect/",postUsuario, name='postUsuario'),
     #path("", include("nombreapp.urls")),
     #path("usuarios/", index),

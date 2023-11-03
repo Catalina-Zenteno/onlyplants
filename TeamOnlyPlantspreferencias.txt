@@ -88,3 +88,12 @@
 'watering' :  'Average' 
 'sunlight' :  'sunlight' 
 'default_image' :  'https://perenual.com/storage/species_image/25_acer_negundo_flamingo/medium/5867345385_a9dff5bee7_b.jpg'}} 
+----------- 
+'id' :  4 
+'common_name' :  'Candicans White Fir' 
+'scientific_name' :  'scientific_name' 
+'other_name' :  'other_name' 
+'cycle' :  'Perennial' 
+'watering' :  'Average' 
+'sunlight' :  'sunlight' 
+'default_image' :  'https://perenual.com/storage/species_image/4_abies_concolor_candicans/medium/49283844888_332c9e46f2_b.jpg'}} 
