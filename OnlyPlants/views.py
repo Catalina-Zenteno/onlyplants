@@ -191,7 +191,7 @@ def base(request):
     print(planta)
     imagen=planta["'default_image'"][2:-3]
     print(imagen)
-    return render(request, "base.html", {'imagen':imagen,'nombre':planta["'common_name'"],"scientific_name":planta["'scientific_name'"]})
+    return render(request, "base.html", {'imagen':imagen,'nombre':planta["'common_name'"],"watering":planta["'watering'"],"cycle":planta["'cycle'"],"sunlight":planta["'sunlight'"]})
     #return render(request, 'ups.html')
 
 
