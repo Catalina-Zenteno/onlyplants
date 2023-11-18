@@ -1,0 +1,38 @@
+#miBarra {
+    margin-top: 0px;
+    margin-left:0px;
+    padding-left: 20px;
+    font-family:'Times New Roman', Times, serif;
+    font-size:x-large;
+}
+
+#contenido {
+    margin-top: 0px;
+    margin-left:15px;
+    padding: 0px;
+}
+
+
+#color {
+    background-color:#BDECB6;
+    background-repeat: no-repeat;
+}
+#preferencias {
+    margin-top: 0px;
+    margin-left:20px;
+    padding: 0px;
+}
+
+#preguntas {
+    margin-top: 0px;
+    margin-left:25px;
+    padding: 0px;
+}
+
+#titulo {
+    margin-top: 0px;
+    margin-left:15px;
+    padding-top: 40px;
+    font-family:'Times New Roman', Times, serif;
+}
+
