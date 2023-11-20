@@ -1,0 +1,18 @@
+----------- 
+'id' :  8 
+'common_name' :  'Blue Spanish Fir' 
+'scientific_name' :  'scientific_name' 
+'other_name' :  'other_name' 
+'cycle' :  'Perennial' 
+'watering' :  'Average' 
+'sunlight' :  'sunlight' 
+'default_image' :  'https://perenual.com/storage/species_image/8_abies_pinsapo_glauca/medium/21657514018_c0d9fed9f4_b.jpg'}} 
+----------- 
+'id' :  10 
+'common_name' :  'Johin Japanese Maple' 
+'scientific_name' :  'scientific_name' 
+'other_name' :  'other_name' 
+'cycle' :  'Perennial' 
+'watering' :  'Average' 
+'sunlight' :  'sunlight' 
+'default_image' :  'https://perenual.com/storage/species_image/10_acer_johin/medium/pexels-photo-2183508.jpg'}} 

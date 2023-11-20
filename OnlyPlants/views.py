@@ -231,7 +231,7 @@ def MisPreferencias(request):
         "lista":lista
     }
     #print(lista)   
-    print(lista[1]["common_name"])     
+    print(lista[0]["common_name"])     
 
     return render(request,"MisPreferencias.html",contexto)
 
